@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.000">
+    <TriggerPackage>
+        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>tahtetso</name>
+            <script></script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList/>
+            <regexCodePropertyList/>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>tahtetso_Weakening</name>
+                <script>combat_echo(matches[2]..&quot; IS WEAKENED!!&quot;, &quot;red&quot;)
+tahtetso.weakened = true
+tempTimer(8, [[tahtetso.weakened = false]])</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>^(\w+) suddenly looks woozy and pale, as blood seeps from all over (her|his) body\.$</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>1</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>tahtetsoReport</name>
+                <script>tahtetso.hemorrhage()
+</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>return isPrompt()</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>4</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>hemoTracking</name>
+                <script>tahtetso.hemo.total = matches[3]
+
+if tahtetso.hemo.total &gt;= &quot;750&quot; then
+	tahtetso.burst = true
+end
+</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>^(He|She) is hemorrhaging for (\d+) health\.$</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>1</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>hemoBurst</name>
+                <script>tahtetso.hemo.total = 0
+
+tcall(&quot;I have bursted &quot; ..string.upper(matches[2])..&quot; Monks can Insta!!&quot;)
+
+</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>^As you burst (\w+)\, you know (her|his) body will soon be weakened\.$</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>1</integer>
+                </regexCodePropertyList>
+            </Trigger>
+            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Rikt4Reelz</name>
+                <script></script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName>Rikt4Reelz</packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList/>
+                <regexCodePropertyList/>
+                <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Rekt</name>
+                    <script></script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName>Rekt</packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList/>
+                    <regexCodePropertyList/>
+                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                        <name>RQM</name>
+                        <script>if tahtetso then
+	tahtetso.hemo.total = 0
+	tahtetso.weakened = false
+end
+
+color = math.random(0, 15)
+if color == 1 then
+	Col = &quot;&lt;spring_green&gt;&quot;
+elseif color == 2 then
+	Col = &quot;&lt;steel_blue&gt;&quot;
+elseif color == 3  then
+	Col = &quot;&lt;DeepSkyBlue&gt;&quot;
+elseif color == 4 then
+	Col = &quot;&lt;MediumSeaGreen&gt;&quot;
+elseif color == 5 then
+	Col = &quot;&lt;medium_turquoise&gt;&quot;
+elseif color == 6 then
+	Col = &quot;&lt;red&gt;&quot;
+elseif color == 7 then
+	Col = &quot;&lt;HotPink&gt;&quot;
+elseif color == 8 then
+	Col = &quot;&lt;medium_spring_green&gt;&quot;
+elseif color == 9 then
+	Col = &quot;&lt;light_steel_blue&gt;&quot;
+elseif color == 10 then
+	Col = &quot;&lt;LimeGreen&gt;&quot;
+elseif color == 11 then
+	Col = &quot;&lt;medium_blue&gt;&quot;
+elseif color == 12 then
+	Col = &quot;&lt;aquamarine&gt;&quot;
+elseif color == 13 then
+	Col = &quot;&lt;DarkSlateGrey&gt;&quot;
+elseif color == 14 then
+	Col = &quot;&lt;misty_rose&gt;&quot;
+elseif color == 15 then
+	Col = &quot;&lt;LightSkyBlue&gt;&quot;
+else
+end
+
+
+cecho(&quot;\n&quot;..Col..&quot;  RRRRRRRRRRRRRRRRR    EEEEEEEEEEEEEEEEEEEEEE KKKKKKKKK    KKKKKKK TTTTTTTTTTTTTTTTTTTTTTT&quot;)
+cecho(&quot;\n&quot;..Col..&quot;  R::::::::::::::::R   E::::::::::::::::::::E K:::::::K    K:::::K T:::::::::::::::::::::T&quot;)
+cecho(&quot;\n&quot;..Col..&quot;  R::::::RRRRRR:::::R  E::::::::::::::::::::E K:::::::K    K:::::K T:::::::::::::::::::::T&quot;)
+cecho(&quot;\n&quot;..Col..&quot;  RR:::::R     R:::::R EE::::::EEEEEEEEE::::E K:::::::K   K::::::K T:::::TT:::::::TT:::::T&quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::R     R:::::R   E:::::E       EEEEEE KK::::::K  K:::::KKK TTTTTT  T:::::T  TTTTTT&quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::R     R:::::R   E:::::E                K:::::K K:::::K            T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::RRRRRR:::::R    E::::::EEEEEEEEEE      K::::::K:::::K             T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R:::::::::::::RR     E:::::::::::::::E      K:::::::::::K              T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::RRRRRR:::::R    E:::::::::::::::E      K:::::::::::K              T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::R     R:::::R   E::::::EEEEEEEEEE      K::::::K:::::K             T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::R     R:::::R   E:::::E                K:::::K K:::::K            T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;    R::::R     R:::::R   E:::::E       EEEEEE KK::::::K  K:::::KKK         T:::::T        &quot;)
+cecho(&quot;\n&quot;..Col..&quot;  RR:::::R     R:::::R EE::::::EEEEEEEE:::::E K:::::::K   K::::::K       TT:::::::TT      &quot;)
+cecho(&quot;\n&quot;..Col..&quot;  R::::::R     R:::::R E::::::::::::::::::::E K:::::::K    K:::::K       T:::::::::T      &quot;)
+cecho(&quot;\n&quot;..Col..&quot;  R::::::R     R:::::R E::::::::::::::::::::E K:::::::K    K:::::K       T:::::::::T      &quot;)
+cecho(&quot;\n&quot;..Col..&quot;  RRRRRRRR     RRRRRRR EEEEEEEEEEEEEEEEEEEEEE KKKKKKKKK    KKKKKKK       TTTTTTTTTTT      &quot;)</script>
+                        <triggerType>0</triggerType>
+                        <conditonLineDelta>0</conditonLineDelta>
+                        <mStayOpen>0</mStayOpen>
+                        <mCommand></mCommand>
+                        <packageName></packageName>
+                        <mFgColor>#ff0000</mFgColor>
+                        <mBgColor>#ffff00</mBgColor>
+                        <mSoundFile></mSoundFile>
+                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                        <regexCodeList>
+                            <string>^You have slain (\w+).$</string>
+                        </regexCodeList>
+                        <regexCodePropertyList>
+                            <integer>1</integer>
+                        </regexCodePropertyList>
+                    </Trigger>
+                </TriggerGroup>
+            </TriggerGroup>
+        </TriggerGroup>
+    </TriggerPackage>
+    <TimerPackage>
+        <TimerGroup isActive="yes" isFolder="yes" isTempTimer="no" isOffsetTimer="no">
+            <name>tahtetso</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <time>00:00:00.000</time>
+            <Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+                <name>discernTahtetso</name>
+                <script>tahtetso.target.health = 0
+tahtetso.target.mana = 0
+tahtetso.target.ego = 0
+disableTimer(&quot;discernTahtetso&quot;)</script>
+                <command></command>
+                <packageName></packageName>
+                <time>00:00:10.000</time>
+            </Timer>
+        </TimerGroup>
+    </TimerPackage>
+    <AliasPackage>
+        <AliasGroup isActive="yes" isFolder="yes">
+            <name>Tahtetso</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <regex></regex>
+            <AliasGroup isActive="yes" isFolder="yes">
+                <name>Tahtetso</name>
+                <script></script>
+                <command></command>
+                <packageName></packageName>
+                <regex></regex>
+                <Alias isActive="yes" isFolder="no">
+                    <name>choke</name>
+                    <script>send(&quot;sm add discern &quot; ..tmptarget.. &quot;|wipe tahto|envenom tahto with dulak|kata perform &quot; ..tmptarget.. &quot; choke&quot;)
+</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^choke$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>dust</name>
+                    <script>tahtetso.form = &quot;dust&quot;
+tahtetso.mod = &quot;&quot;
+tahtetso.dustPoisoner()
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^dust$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>parry</name>
+                    <script>tahtetso.form = &quot;parry&quot;
+tahtetso.mod = &quot;&quot;
+tahtetso.dustPoisoner()
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^parry$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>icestack</name>
+                    <script>tahtetso.form = &quot;icestack&quot;
+tahtetso.mod = &quot;&quot;
+tahtetso.icePoisoner()
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^ice$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>insta</name>
+                    <script>tahtetso.form = &quot;insta&quot;
+tahtetso.mod = &quot;&quot;
+tahtetso.dustPoisoner()
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^insta$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Burst</name>
+                    <script>tahtetso.form = &quot;parry&quot;
+tahtetso.poison1 = &quot;dulak&quot;
+tahtetso.poison2 = &quot;dulak&quot;
+tahtetso.mod = &quot;burst&quot;
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^burst$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>^boost$</name>
+                    <script>tahtetso.form = &quot;dust&quot;
+tahtetso.mod = &quot;boost&quot;
+tahtetso.dustPoisoner()
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^boost$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Tahtetso Prompt Alias</name>
+                    <script>if tahtetso.prompt == true then
+	tahtetso.prompt = false
+	disableTrigger(&quot;tahtetsoReport&quot;)
+	tahtetso.echo(&quot;Disabling Tahtetso Prompt&quot;)
+else
+	tahtetso.prompt = true
+	enableTrigger(&quot;tahtetsoReport&quot;)
+	tahtetso.echo(&quot;Enabling Tahtetso Prompt&quot;)
+end</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^tprompt$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>mute</name>
+                    <script>tahtetso.form = &quot;mutelleg high&quot;
+tahtetso.mod = &quot;&quot;
+--tahtetso.dustPoisoner()
+tahtetso.forms()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^mute$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>doubleMute</name>
+                    <script>tahtetso.doubleMute()</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^double$</regex>
+                </Alias>
+            </AliasGroup>
+            <AliasGroup isActive="yes" isFolder="yes">
+                <name>Harmony</name>
+                <script></script>
+                <command></command>
+                <packageName></packageName>
+                <regex></regex>
+                <Alias isActive="yes" isFolder="no">
+                    <name>chillMantra</name>
+                    <script>send(&quot;sm add mantra chant lumuti lumphet lummun&quot;)
+mantraPrism = false</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^mantra chill$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>discernMantra</name>
+                    <script>send(&quot;sm add mantra chant lumphet angphet ooshphet&quot;)
+mantraPrism = false</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^mantra discern$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>mantraBoil</name>
+                    <script>send(&quot;mantra chant krakphet krakuti krakmun&quot;)
+mantraPrism = false</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^mantra boil$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>akhchukrakoosh</name>
+                    <script>send(&quot;sm add mantra chant chuuti krakphet ooshphet&quot;)
+mantraPrism = false</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^mantra karma$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>akhlumangchu</name>
+                    <script>if mantraPrism == true then
+	send(&quot;sm add mantra prism&quot;)
+else
+	send(&quot;sm add mantra highchant lumphet angphet chuphet|mantra prism&quot;)
+	mantraPrism = true
+end</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^prism$</regex>
+                </Alias>
+            </AliasGroup>
+        </AliasGroup>
+    </AliasPackage>
+    <ActionPackage>
+        <ActionGroup isActive="yes" isFolder="yes" isPushButton="yes" isFlatButton="yes" useCustomLayout="no">
+            <name>daebachBackup</name>
+            <packageName>daebachBackup</packageName>
+            <script></script>
+            <css></css>
+            <commandButtonUp></commandButtonUp>
+            <commandButtonDown></commandButtonDown>
+            <icon></icon>
+            <orientation>0</orientation>
+            <location>0</location>
+            <posX>0</posX>
+            <posY>0</posY>
+            <mButtonState>1</mButtonState>
+            <sizeX>13208950</sizeX>
+            <sizeY>1876804388</sizeY>
+            <buttonColumn>1</buttonColumn>
+            <buttonRotation>1876804388</buttonRotation>
+            <buttonColor>#ffffff</buttonColor>
+            <ActionGroup isActive="yes" isFolder="yes" isPushButton="yes" isFlatButton="yes" useCustomLayout="no">
+                <name>Allclasses m&amp;m</name>
+                <packageName>Allclasses m&amp;m</packageName>
+                <script></script>
+                <css></css>
+                <commandButtonUp></commandButtonUp>
+                <commandButtonDown></commandButtonDown>
+                <icon></icon>
+                <orientation>5439571</orientation>
+                <location>7733324</location>
+                <posX>0</posX>
+                <posY>0</posY>
+                <mButtonState>1</mButtonState>
+                <sizeX>7209029</sizeX>
+                <sizeY>3997795</sizeY>
+                <buttonColumn>1</buttonColumn>
+                <buttonRotation>5374013</buttonRotation>
+                <buttonColor>#ffffff</buttonColor>
+                <ActionGroup isActive="no" isFolder="yes" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                    <name>m&amp;m</name>
+                    <packageName></packageName>
+                    <script></script>
+                    <css></css>
+                    <commandButtonUp></commandButtonUp>
+                    <commandButtonDown></commandButtonDown>
+                    <icon></icon>
+                    <orientation>0</orientation>
+                    <location>0</location>
+                    <posX>0</posX>
+                    <posY>0</posY>
+                    <mButtonState>1</mButtonState>
+                    <sizeX>121309952</sizeX>
+                    <sizeY>470220885</sizeY>
+                    <buttonColumn>1</buttonColumn>
+                    <buttonRotation>-1</buttonRotation>
+                    <buttonColor>#ffffff</buttonColor>
+                    <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                        <name>Show affs</name>
+                        <packageName></packageName>
+                        <script></script>
+                        <css></css>
+                        <commandButtonUp></commandButtonUp>
+                        <commandButtonDown></commandButtonDown>
+                        <icon></icon>
+                        <orientation>1</orientation>
+                        <location>0</location>
+                        <posX>0</posX>
+                        <posY>0</posY>
+                        <mButtonState>2</mButtonState>
+                        <sizeX>33</sizeX>
+                        <sizeY>0</sizeY>
+                        <buttonColumn>1</buttonColumn>
+                        <buttonRotation>-1</buttonRotation>
+                        <buttonColor>#ffffff</buttonColor>
+                    </Action>
+                    <ActionGroup isActive="yes" isFolder="yes" isPushButton="no" isFlatButton="yes" useCustomLayout="yes">
+                        <name>Show prios</name>
+                        <packageName></packageName>
+                        <script></script>
+                        <css></css>
+                        <commandButtonUp></commandButtonUp>
+                        <commandButtonDown></commandButtonDown>
+                        <icon></icon>
+                        <orientation>1</orientation>
+                        <location>0</location>
+                        <posX>0</posX>
+                        <posY>0</posY>
+                        <mButtonState>2</mButtonState>
+                        <sizeX>0</sizeX>
+                        <sizeY>0</sizeY>
+                        <buttonColumn>1</buttonColumn>
+                        <buttonRotation>0</buttonRotation>
+                        <buttonColor>#ffffff</buttonColor>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="no" useCustomLayout="no">
+                            <name>Herb</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>1081442304</sizeX>
+                            <sizeY>0</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>0</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="no" useCustomLayout="no">
+                            <name>Focus</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>65536</sizeX>
+                            <sizeY>-1878694544</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>-1</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                            <name>Salve</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>121309952</sizeX>
+                            <sizeY>470220885</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>-1</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                            <name>Purgative</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>121309952</sizeX>
+                            <sizeY>470220885</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>-1</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                            <name>Sip</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>35</sizeX>
+                            <sizeY>28</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>-1</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                            <name>Balance</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>121309952</sizeX>
+                            <sizeY>470220885</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>-1</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                        <Action isActive="yes" isFolder="no" isPushButton="no" isFlatButton="yes" useCustomLayout="no">
+                            <name>Slow curing mode</name>
+                            <packageName></packageName>
+                            <script></script>
+                            <css></css>
+                            <commandButtonUp></commandButtonUp>
+                            <commandButtonDown></commandButtonDown>
+                            <icon></icon>
+                            <orientation>1</orientation>
+                            <location>0</location>
+                            <posX>0</posX>
+                            <posY>0</posY>
+                            <mButtonState>1</mButtonState>
+                            <sizeX>32767</sizeX>
+                            <sizeY>0</sizeY>
+                            <buttonColumn>1</buttonColumn>
+                            <buttonRotation>-1</buttonRotation>
+                            <buttonColor>#ffffff</buttonColor>
+                        </Action>
+                    </ActionGroup>
+                </ActionGroup>
+            </ActionGroup>
+        </ActionGroup>
+    </ActionPackage>
+    <ScriptPackage>
+        <ScriptGroup isActive="yes" isFolder="yes">
+            <name>Tahtetso</name>
+            <packageName></packageName>
+            <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+            <eventHandlerList/>
+            <Script isActive="yes" isFolder="no">
+                <name>tahtetso</name>
+                <packageName></packageName>
+                <script>tahtetso = {}
+	tahtetso.form = &quot;&quot;
+	tahtetso.mod = &quot;&quot;
+
+	tahtetso.poison = {}
+		tahtetso.poison.dust = {
+			&quot;anerod&quot;, 
+			&quot;haemotox&quot;, 
+			&quot;botulinum&quot;,
+			&quot;dulak&quot;
+		}
+		tahtetso.poison.ice = {
+			&quot;dulak&quot;, 
+			&quot;senso&quot;
+		}
+
+tahtetso.poison1 = &quot;&quot;
+tahtetso.poison2 = &quot;&quot;
+
+tahtetso.hemo = {
+	total = &quot;0&quot;
+}
+
+tahtetso.burst = false
+tahtetso.weakened = false
+
+tahtetso.target = {
+	health = &quot;&quot;,
+	mana = &quot;&quot;,
+	ego = &quot;&quot;
+}
+
+tahtetso.stances = {
+	[&quot;[b]&quot;] = {&quot;Base&quot;},
+	[&quot;[tl]&quot;] = {&quot;TwistLow&quot;},
+	[&quot;[th]&quot;] = {&quot;TwistHigh&quot;},
+	[&quot;[c]&quot;] = {&quot;Centre&quot;},
+	[&quot;[sl]&quot;] = {&quot;SurgeLow&quot;},
+	[&quot;[sh]&quot;] = {&quot;SurgeHigh&quot;},
+	[&quot;[k]&quot;] = {&quot;Killer&quot;}
+}
+
+tahtetso.echo = function(text) cecho(&quot;&lt;DarkSlateGrey&gt;\n[&lt;SpringGreen&gt;Tahtetso&lt;DarkSlateGrey&gt;]: &lt;red&gt;&quot; .. text) end
+
+tahtetso.prompt = false
+ 
+function tahtetso.forms()
+	discern()
+    if tahtetso.mod == &quot;boost&quot; then
+        send(&quot;sm add assess &quot; ..tmptarget..&quot;|wipe tahto|envenom tahto with &quot; ..tahtetso.poison1.. &quot;|envenom tahto with &quot;..tahtetso.poison2..&quot;|kata perform &quot; ..tmptarget.. &quot; &quot;..tahtetso.form..&quot; boost&quot;)
+    elseif tahtetso.mod == &quot;burst&quot; then
+        send(&quot;sm add assess &quot; ..tmptarget..&quot;|wipe tahto|envenom tahto with &quot; ..tahtetso.poison1.. &quot;|envenom tahto with &quot;..tahtetso.poison2..&quot;|kata perform &quot; ..tmptarget.. &quot; &quot; ..tahtetso.form.. &quot; burst&quot;)
+    elseif tahtetso.mod == &quot;tahto'sho&quot; then
+        send(&quot;sm add assess &quot; ..tmptarget..&quot;|wipe tahto|envenom tahto with &quot; ..tahtetso.poison1.. &quot;|envenom tahto with &quot;..tahtetso.poison2..&quot;|kata perform &quot; ..tmptarget.. &quot; &quot; ..tahtetso.form.. &quot; tahto'sho&quot;)
+    elseif tahtetso.mod == &quot;high&quot; then
+        send(&quot;sm add assess &quot; ..tmptarget.. &quot;|wipe tahto|envenom tahto with &quot; ..tahtetso.poison1.. &quot;|envenom tahto with &quot;..tahtetso.poison2.. &quot;|kata perform &quot; ..tmptarget.. &quot; &quot;..tahtetso.form..&quot; high&quot;)
+    else
+        send(&quot;sm add assess &quot; ..tmptarget..&quot;|wipe tahto|envenom tahto with &quot;..tahtetso.poison1..&quot;|envenom tahto with &quot;..tahtetso.poison2..&quot;|kata perform &quot; ..tmptarget.. &quot; &quot; ..tahtetso.form)
+    end
+end
+
+function tahtetso.dustPoisoner()
+	tahtetso.poison1 = tahtetso.poison.dust[math.random(#tahtetso.poison.dust)]
+	tahtetso.poison2 = tahtetso.poison.dust[math.random(#tahtetso.poison.dust)]
+end
+
+function tahtetso.icePoisoner()
+	tahtetso.poison1 = tahtetso.poison.ice[math.random(#tahtetso.poison.ice)]
+	tahtetso.poison2 = tahtetso.poison.ice[math.random(#tahtetso.poison.ice)]
+end
+
+function tahtetso.hemorrhage()
+	cecho(&quot;\n&lt;pink&gt;|&lt;light_blue&gt;H: &quot;..tahtetso.target.health)
+	cecho(&quot;&lt;pink&gt;|&lt;light_blue&gt;M: &quot; ..tahtetso.target.mana)
+	cecho(&quot;&lt;pink&gt;|&lt;light_blue&gt;E: &quot; ..tahtetso.target.ego)
+	cecho(&quot;&lt;pink&gt;|&lt;light_blue&gt;Hemo: &quot;..tahtetso.hemo.total..&quot;&lt;pink&gt;|&quot;)
+	if tahtetso.burst == false then
+		cecho(&quot;&lt;light_blue&gt;Burst Rdy:&lt;red&gt; NO&lt;pink&gt;|&quot;)
+	elseif tahtetso.burst == true then
+		cecho(&quot;&lt;light_blue&gt;Burst Rdy:&lt;green&gt; YES&lt;pink&gt;|&quot;)
+	end
+	if tahtetso.weakened == true then
+		cecho(&quot;&lt;blue&gt;INSTA!!&lt;pink&gt;|&quot;)
+	end
+end
+
+function tahtetso.doubleMute()
+	tahtetso.form = &quot;mutelleg high&quot;
+	tahtetso.mod = &quot;&quot;
+	tahtetso.icePoisoner()
+	tahtetso.forms()
+	tempTimer(3, [[tahtetso.form = &quot;icestack&quot;
+	tahtetso.mod = &quot;boost&quot;
+	tahtetso.icePoisoner()
+	tahtetso.forms()]])
+	tempTimer(6, [[tahtetso.form = &quot;muterleg high&quot;
+	tahtetso.mod = &quot;tahto'sho&quot;
+	tahtetso.icePoisoner()
+	tahtetso.forms()]])
+end</script>
+                <eventHandlerList/>
+            </Script>
+        </ScriptGroup>
+    </ScriptPackage>
+    <KeyPackage/>
+</MudletPackage>
